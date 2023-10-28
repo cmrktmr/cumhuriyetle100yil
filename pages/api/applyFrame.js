@@ -1,5 +1,3 @@
-// pages/api/applyFrame.js
-
 import sharp from 'sharp';
 
 export default async (req, res) => {
@@ -15,7 +13,7 @@ export default async (req, res) => {
     const frame = sharp(cercevePath);
     const { width: frameWidth, height: frameHeight } = await frame.metadata();
 
-    const desiredSize = Math.min(frameWidth, frameHeight) * 0.6;  // Örnek olarak çerçevenin %80'i alındı
+    const desiredSize = Math.min(frameWidth, frameHeight) * 0.6;  
 
     const userImage = sharp(imageBuffer).resize(desiredSize, desiredSize, {
         fit: 'cover',
